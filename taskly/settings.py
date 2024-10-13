@@ -142,3 +142,10 @@ REST_FRAMEWORK = {
 SIMPLE_JWT = {
    'AUTH_HEADER_TYPES': ('JWT',),
 }
+
+DJOSER = {
+    'USER_ID_FIELD': 'phone_number',
+    'LOGIN_FIELD': 'phone_number',
+}
+
+AUTH_USER_MODEL = 'users.CustomUser'
