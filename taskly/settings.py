@@ -146,6 +146,11 @@ SIMPLE_JWT = {
 }
 
 DJOSER = {
+    'SERIALIZERS': {
+        'user': 'users.serializers.UserSerializer',
+        'user_create': 'users.serializers.UserSerializer',
+    },
+
     'USER_ID_FIELD': 'phone_number',
     'LOGIN_FIELD': 'phone_number',
 }
