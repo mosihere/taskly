@@ -20,10 +20,10 @@ class UserSerializer(BaseUserSerializer):
     
     def validate_phone_number(self, value):
         if not value.isdigit() or len(value) != 11:
-            raise serializers.ValidationError("Phone number must be 11 digits long and contain only numbers.")
+            raise serializers.ValidationError('Phone number must be 11 digits long and contain only numbers.')
         
         if User.objects.filter(phone_number=value).exists():
-            raise ValidationError("A user with this phone number already exists.")
+            raise ValidationError('A user with this phone number already exists.')
         
         return value
 
