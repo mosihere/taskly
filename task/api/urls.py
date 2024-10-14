@@ -5,6 +5,10 @@ from drf_yasg import openapi
 from rest_framework import permissions
 from .views import TaskViewSet
 
+
+
+app_name = 'task'
+
 # Define the router and register the TaskViewSet
 router = DefaultRouter()
 router.register('tasks', TaskViewSet, basename='task')
