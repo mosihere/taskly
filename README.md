@@ -137,8 +137,8 @@ they are exists by default because of using Djoser
 <br>
 
 #### Main and necessary endpoints to Manage Users are:
-* Creating User + Getting List of Users By Admins: `api/auth/users/`
-* After Creating User, this endpoint let you Get your JWT: `api/auth/jwt/create/`
+* Create User + Get List of Users By Admins: `api/auth/users/`
+* Create JWT for User, this endpoint let you Get your JWT: `api/auth/jwt/create/`
 * Refresh the Token: `api/auth/jwt/refresh/`
-* Let CRUD operations (Admin Only): `api/auth/users/<id>/`
-* CRUD For User itself: `api/auth/users/me/`
+* CRUD operations (Admin Only): `api/auth/users/<id>/`
+* CRUD (User): `api/auth/users/me/`
