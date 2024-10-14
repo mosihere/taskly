@@ -145,9 +145,13 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-   'AUTH_HEADER_TYPES': ('JWT',),
+    'AUTH_HEADER_TYPES': ('JWT',),
     'ACCESS_TOKEN_LIFETIME': timedelta(hours=3),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7), 
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': False,
+    'UPDATE_LAST_LOGIN': False,
+
 }
 
 DJOSER = {
@@ -159,6 +163,7 @@ DJOSER = {
     },
     'USER_ID_FIELD': 'id',
     'LOGIN_FIELD': 'phone_number',
+    'TOKEN_MODEL': None,
 }
 
 AUTH_USER_MODEL = 'users.CustomUser'
