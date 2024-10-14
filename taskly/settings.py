@@ -144,17 +144,18 @@ REST_FRAMEWORK = {
 
 SIMPLE_JWT = {
    'AUTH_HEADER_TYPES': ('JWT',),
-    'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=3),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7), 
 }
 
 DJOSER = {
     'SERIALIZERS': {
         'user': 'users.serializers.UserSerializer',
-        'user_create': 'users.serializers.UserSerializer',
+        'current_user': 'users.serializers.UserSerializer',
+        'user_create': 'users.serializers.UserCreateSerializer',
+        'user_delete': 'users.serializers.UserDeleteSerializer',
     },
-
-    'USER_ID_FIELD': 'phone_number',
+    'USER_ID_FIELD': 'id',
     'LOGIN_FIELD': 'phone_number',
 }
 
