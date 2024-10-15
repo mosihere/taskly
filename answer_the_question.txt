@@ -1,0 +1,26 @@
+Additional Question: Scenario-Based Problem
+
+Scenario:
+You have a Django project deployed on three servers. Each server handles media files uploaded by users. Describe how you would handle the 
+synchronization and management of these media files across the three servers to ensure consistency and availability.
+
+Question:
+How would you approach and solve the problem of managing media files in a Django project deployed on multiple servers? Discuss the strategies and tools you would use to handle media file synchronization, avoid conflicts, and ensure high availability, while taking into account the limitations imposed by the sanctions on Iran.
+
+
+In managing media files for my Django project deployed across three servers, I would take a strategic approach to ensure synchronization, consistency, and high availability, especially given the unique challenges posed by the sanctions on Iran.
+
+First, I would consider centralized storage solutions. Ideally, I'd leverage cloud storage like AWS S3 or Google Cloud Storage, as this allows for direct uploads from users to a central location. This would minimize synchronization issues, as all servers would reference the same source for media files.
+
+If cloud storage isn't an option due to sanctions, I'd implement a local storage solution with tools like rsync for synchronization. Using rsync, I could regularly synchronize media files across the three servers, ensuring that any new uploads or changes on one server are reflected on the others. Additionally,
+I might consider a distributed file system like GlusterFS, which would allow the servers to function more seamlessly as a unified storage system.
+
+To further avoid conflicts, I would adopt a unique naming convention for files. This way, even if the same file is uploaded from different servers, they won't overwrite each other. Implementing version control for media files would also be beneficial, allowing me to retain access to previous versions of files.
+
+In terms of metadata management, I would store all relevant information about media files in the database. This includes file names, paths, and associated user data. This metadata would serve as a reliable reference point across all servers, helping maintain consistency.
+
+To improve performance and availability, I'd consider using a Content Delivery Network (CDN) if feasible. A CDN could cache the files and deliver them to users more efficiently, reducing the load on my servers.
+
+Finally, I would ensure that I'm compliant with local laws and regulations regarding data storage and transfer, particularly considering the limitations imposed by the sanctions on Iran. This compliance is crucial to avoid any legal issues while ensuring the system's integrity.
+
+By implementing these strategies, I would effectively manage media files across my Django project's multiple servers, ensuring they remain consistent and available to users.
