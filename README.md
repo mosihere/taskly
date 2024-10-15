@@ -117,8 +117,9 @@ Tasks can be filtered by:
 * Title: Use the `?title=` query parameter.
 * Creation Date: Use the `?created_at=` query parameter.
 <br>
+
 example
-```GET /api/tasks/?title=meeting&created_at=2024-10-13```
+`GET /api/tasks/?title=meeting&created_at=2024-10-13`
 
 
 ### Testing
