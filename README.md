@@ -89,13 +89,14 @@ python manage.py createsuperuser
 
 ## Important Note
 
-After registering and obtaining your JWT from the specified endpoint, ensure that you store it in the browser header. You can use the **ModHeader** extension to manage your headers as follows:
+In case you use Browsable Api, After registering and obtaining your JWT from the specified endpoint, ensure that you store it in the browser header. You can use the **ModHeader** extension to manage your headers as follows:
 
 ```bash
 Authorization: JWT <your_json_web_token>
 ```
 Hint: Simpler to use Swagger Interactive API.
-
+<br>
+Also in case you use Postman, Curl or whatever, don't forget to set the JWT in header aswell.
 ### Task Management
 
 - **GET** `/api/tasks/`: List all tasks (filtered by title or creation date).
@@ -138,8 +139,8 @@ they are exists by default because of using Djoser
 <br>
 
 #### Main and necessary endpoints to Manage Users are:
-* Create User + Get List of Users By Admins: `api/auth/users/`
-* Create JWT for User, this endpoint let you Get your JWT: `api/auth/jwt/create/`
-* Refresh the Token: `api/auth/jwt/refresh/`
-* CRUD operations (Admin Only): `api/auth/users/<id>/`
-* CRUD (User): `api/auth/users/me/`
+* Create User + Get List of Users By Admins: `/api/auth/users/`
+* Create JWT for User, this endpoint let you Get your JWT: `/api/auth/jwt/create/`
+* Refresh the Token: `/api/auth/jwt/refresh/`
+* CRUD operations (Admin Only): `/api/auth/users/<id>/`
+* CRUD (User): `/api/auth/users/me/`
