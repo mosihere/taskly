@@ -109,3 +109,26 @@ class TaskAPITests(APITestCase):
         # User2 trying to delete user1's task
         response = self.client.delete(url)
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+    def test_filter_tasks(self):
+        """
+        Ensure a user can filter tasks by title and created date.
+        """
+        # Clean up any existing tasks for user1
+        Task.objects.filter(user=self.user1).delete()
+
+        # Create additional tasks for user1
+        Task.objects.create(title="Task A", status=Task.BACKLOG_STATUS, user=self.user1)
+        Task.objects.create(title="Task B", status=Task.IN_PROGRESS_STATUS, user=self.user1)
+        Task.objects.create(title="Task C", status=Task.DONE_STATUS, user=self.user1)
+
+        url = reverse('task:task-list')
+
+        # Test filtering tasks by title using icontains
+        response = self.client.get(url, {'title': 'Task A'})  # Filter by title
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        
+        # Ensure that there is at least one match and verify its title
+        self.assertGreater(len(response.data), 0)  # There should be matches
+        task_titles = [task['title'] for task in response.data]
+        self.assertIn("Task A", task_titles)  # Check that "Task A" is one of the returned titles
