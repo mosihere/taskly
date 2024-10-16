@@ -166,3 +166,15 @@ DJOSER = {
 }
 
 AUTH_USER_MODEL = 'users.CustomUser'
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'JWT': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header',
+            'description': 'JWT Authorization header using the Bearer scheme. Example: "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."',
+        }
+    },
+    'USE_SESSION_AUTH': False,  # Disable session authentication
+}

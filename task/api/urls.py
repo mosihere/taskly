@@ -21,8 +21,22 @@ schema_view = get_schema_view(
         description="API documentation for the Taskly",
     ),
     public=True,
-    permission_classes=(permissions.IsAuthenticated,),
+    permission_classes=(permissions.AllowAny,),
 )
+
+# # Add security definitions for JWT
+# schema_view.schema = {
+#     'components': {
+#         'securitySchemes': {
+#             'JWT': {
+#                 'type': 'http',
+#                 'scheme': 'bearer',
+#                 'bearerFormat': 'JWT',
+#             }
+#         }
+#     },
+#     'security': [{'JWT': []}],
+# }
 
 # Combine the API routes with the documentation routes
 urlpatterns = [
